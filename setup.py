@@ -9,5 +9,5 @@ setup(
     author='Julian O.',
     author_email='puzzlesolvingframework@somethinkodd.com',
     #url='https://',
-    packages=['puzzlesolvingframework']
+    py_modules=['gameframework', 'gameobjects', 'gameboard', 'commanddispatcher', 'views']
     )
