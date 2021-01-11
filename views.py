@@ -103,7 +103,7 @@ class Controller(object):
                     cookie)
 
 try:
-    import pygame
+    import pygamesilent as pygame
 
     class PyGameController(Controller):
 
