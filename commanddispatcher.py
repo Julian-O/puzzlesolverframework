@@ -48,7 +48,7 @@ class CommandDispatcher(object):
 
         count = 0
         if max_period is not None:
-            target_end_time = (time.clock() + max_period)
+            target_end_time = (time.monotonic() + max_period)
 #            print "finishing at ", target_end_time, time.clock()
 
         finished = False
@@ -61,7 +61,7 @@ class CommandDispatcher(object):
             hit_max_count = (
                 max_count is not None and count >= max_count)
             hit_time_limit = (
-                max_period is not None and time.time() > target_end_time)
+                max_period is not None and time.monotonic() > target_end_time)
             
             #print "Completed step. Solved? %s. Max Steps? %s Max Time? %s" % (
             #    solved, hit_max_count, hit_time_limit
