@@ -1,5 +1,4 @@
 class GameObject(object):
-
     def __init__(self):
         self.subscribers = set()
 
@@ -26,7 +25,7 @@ class GameObject(object):
 
 class ConstrainedGameObject(GameObject):
 
-    """ A ConstrainedGameObject has a set of constraints that it tries to solve
+    """A ConstrainedGameObject has a set of constraints that it tries to solve
     by examining neighbouring objects.
 
 
@@ -60,8 +59,8 @@ class ConstrainedGameObject(GameObject):
         self.accept_notification(None)
 
     def accept_notification(self, cookie):
-        """ Accept message from neighbour that your context has changed and
-            constraints should be re-evaluated."""
+        """Accept message from neighbour that your context has changed and
+        constraints should be re-evaluated."""
         # Must return quickly. Must not raise an exception.
 
         # Cookie is ignored! Method must be overridden if it is required.
@@ -72,7 +71,7 @@ class ConstrainedGameObject(GameObject):
         if self.is_started:
             # Push apply_constraints onto the command queue.
             self.command_queue.push(self.apply_constraints, cookie, 50)
-                # 50 is neutral priority.
+            # 50 is neutral priority.
 
     def apply_constraints(self, cookie):
         # Performs the actual logic of the constraints held by object.

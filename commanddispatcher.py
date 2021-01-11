@@ -5,9 +5,9 @@ import time
 class CommandDispatcher(object):
 
     """
-       Allows calls to slow functions to be queued up in prioritised order
-       for execution more systematically than a simple recursive call.
-       """
+    Allows calls to slow functions to be queued up in prioritised order
+    for execution more systematically than a simple recursive call.
+    """
 
     def __init__(self):
         # priority -> set (callback, cookie)
@@ -42,14 +42,14 @@ class CommandDispatcher(object):
         # max_count is the most number of Commands to run.
         # max_count is (floating point) max number of seconds.
         #   Commands won't start after that point. May overrun though.
-        
+
         if not len(self):
             return
 
         count = 0
         if max_period is not None:
-            target_end_time = (time.monotonic() + max_period)
-#            print "finishing at ", target_end_time, time.clock()
+            target_end_time = time.monotonic() + max_period
+        #            print "finishing at ", target_end_time, time.clock()
 
         finished = False
 
@@ -58,14 +58,14 @@ class CommandDispatcher(object):
             count = count + 1
 
             solved = len(self) == 0
-            hit_max_count = (
-                max_count is not None and count >= max_count)
+            hit_max_count = max_count is not None and count >= max_count
             hit_time_limit = (
-                max_period is not None and time.monotonic() > target_end_time)
-            
-            #print "Completed step. Solved? %s. Max Steps? %s Max Time? %s" % (
+                max_period is not None and time.monotonic() > target_end_time
+            )
+
+            # print "Completed step. Solved? %s. Max Steps? %s Max Time? %s" % (
             #    solved, hit_max_count, hit_time_limit
-            #)
+            # )
             finished = solved or hit_max_count or hit_time_limit
 
     def __str__(self):

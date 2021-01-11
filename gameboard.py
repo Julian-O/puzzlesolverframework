@@ -1,6 +1,7 @@
 class GameBoard(object):
 
     """Class that is responsible for maintaining all the Game-state"""
+
     # Not responsible for visualisation.
     # Not active.
     # Has friend GameBoardView
@@ -13,6 +14,4 @@ class GameBoard(object):
 
     def solve(self, max_count=None, max_period=None):
         # maxPeriod is in seconds.
-        self.command_queue.execute_many_commands(
-            max_count,
-            max_period)
+        self.command_queue.execute_many_commands(max_count, max_period)
